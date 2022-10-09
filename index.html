@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hilarious Kill Quotes</title>
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mt-2">Hilarious Kill Quotes</h1>
+        <form>
+            <div class="form-group">
+                <label for="">Winner:</label>
+                <input id="winner" class="form-control" type="text" placeholder="Turtletastic">
+            </div>
+            <div class="form-group mt-2">
+                <label for="">Loser:</label>
+                <input id="loser" class="form-control" type="text" placeholder="FlashMcDash">
+            </div>
+            <div class="form-group mt-2">
+                <button id="btn-go" class="btn btn-success btn-lg float-right" type="button">
+                    Go
+                </button>
+            </div>
+        </form>
+        <div class="container mt-2" id="out-string"></div>
+    </div>
+
+    <script>
+        const sentences = [
+            (winner, loser) => `${loser} got pushed into a TNT prison by ${winner}.`,
+            (winner, loser) => `${winner} mopped the floor with ${loser}.`,
+            (winner, loser) => `${winner} ate a ${loser} sandwich.`,
+            (winner, loser) => `${loser} ran into a wall while trying to escape ${winner}.`,
+            (winner, loser) => `${loser} wanted to be friends. ${winner} did not.`,
+            (winner, loser) => `${winner} made ${loser} take the L.`,
+            (winner, loser) => `${winner} kicked ${loser} into outer space.`,
+            (winner, loser) => `${loser} was destroyed by ${winner}'s PVP skillz.`,            
+            (winner, loser) => `${winner} couldn't resist the urge to incinerate ${loser}.`,
+            (winner, loser) => `${winner} was obliged to kill ${loser}.`,
+            (winner, loser) => `${loser} was too terrible to kill ${winner}.`,
+            (winner, loser) => `${loser} sucked against ${winner}.`,
+            (winner, loser) => `${winner} yeeted ${loser} into next Tuesday.`,
+            (winner, loser) => `${loser} attempted to kill ${winner} but it didn't turn out so well...`,
+            (winner, loser) => `${loser} felt the wrath of ${winner}.`,
+            (winner, loser) => `${loser} was bested by ${winner}.`,
+            (winner, loser) => `${winner} destroyed ${loser} into oblivion.`,
+            (winner, loser) => `${winner} thought ${loser} was a punching bag.`,
+            (winner, loser) => `${loser} stared into the face of defeat and saw ${winner}.`,
+            (winner, loser) => `${winner} played basketball with ${loser}. ${loser} was the ball.`,
+            (winner, loser) => `Once upon a time... ${winner} killed ${loser}.`,
+            (winner, loser) => `${loser} was so terrible ${winner} had time to take a selfie before destroying them.`,
+            (winner, loser) => `It was not a close battle. ${winner} made ${loser} cry.`,
+            (winner, loser) => `${loser} lost to ${winner} so badly, their parents went to hospital out of shame.`,
+        ];
+        var tfWinner = document.getElementById("winner");
+        var tfLoser = document.getElementById("loser");
+        var lblKillSentence = document.getElementById("out-string");
+        document.getElementById("btn-go").addEventListener("click", function () {
+            var winner = tfWinner.value.trim();
+            var loser = tfLoser.value.trim();
+            if (!winner) winner = 'Turtletastic';
+            if (!loser) loser = "FlashMcDash";
+            var sentenceFn = sentences[Math.floor(Math.random()*sentences.length)];
+            lblKillSentence.innerHTML = sentenceFn(winner, loser);
+        }); 
+    </script>
+</body>
+
+</html>
